@@ -1,25 +1,32 @@
 FROM gcc:latest
 
 #Install cmake
-RUN 
+
+RUN apt-get update
+RUN apt-get install -y  cmake 
+
 
 #Set the workdir
-WORKDIR 
+WORKDIR  /usr/src/app/
+
+RUN mkdir softeng2
+
+WORKDIR /usr/src/app/softeng2
 
 #Copy your files
-COPY 
+COPY . .
 
 #Create the build folder
-RUN 
+RUN mkdir build
 
 #Change workdir
-WORKDIR 
+WORKDIR /usr/src/app/softeng2/build
 
 #Cmake
-RUN 
+RUN cmake ..
 
 #Cmake part2
-RUN 
+RUN make
 
 #Execute 
-CMD 
+CMD ./CMakeHelloWorld
